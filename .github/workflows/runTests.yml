@@ -16,5 +16,7 @@ jobs:
 
     - name: Can i run nunit console runner?
       run: |
+        ls -la $GITHUB_WORKSPACE/packages
+        ls -la $GITHUB_WORKSPACE/packages/NUnit.ConsoleRunner.3.12.0
         mono $GITHUB_WORKSPACE/packages/NUnit.ConsoleRunner.3.12.0/tools/nunit3-console.exe 
 
