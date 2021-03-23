@@ -10,9 +10,9 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
 
-    # - name: Restore packages
-    #   run: |
-    #     nuget restore SampleNunitProject.sln
+    - name: Restore packages
+      run: |
+        nuget restore SampleNunitProject.sln
 
     # - name: build the dll
     #   run: |
