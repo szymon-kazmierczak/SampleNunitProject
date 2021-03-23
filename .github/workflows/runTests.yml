@@ -10,9 +10,9 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
 
-    - name: Which mono do we have here
+    - name: Restore project
       run: |
-        mono --version
+        dotnet restore
 
     - name: Can i run nunit console runner?
       run: |
