@@ -14,6 +14,10 @@ jobs:
       run: |
         nuget restore SampleNunitProject.sln
 
+    - name: build the dll
+      run: |
+        dotnet build
+
     - name: Run Unit Tests
       run: |
         mono $GITHUB_WORKSPACE/packages/NUnit.ConsoleRunner.3.12.0/tools/nunit3-console.exe SampleNunitProject.sln
