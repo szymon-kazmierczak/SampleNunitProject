@@ -12,7 +12,7 @@ jobs:
 
     - name: Restore project
       run: |
-        dotnet restore
+        nuget restore SampleNunitProject.sln
 
     - name: Can i run nunit console runner?
       run: |
