@@ -1,0 +1,19 @@
+name: Main workflow
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    timeout-minutes: 15
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: Which mono do we have here
+      run: |
+        mono --version
+
+    - name: Can i restore the project?
+      run: |
+        dotnet restore
