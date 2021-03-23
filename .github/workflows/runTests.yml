@@ -14,6 +14,7 @@ jobs:
       run: |
         mono --version
 
-    - name: Can i restore the project?
+    - name: Can i run nunit console runner?
       run: |
-        dotnet restore
+        ./packages/NUnit.ConsoleRunner.3.12.0/tools/nunit3-console.exe 
+
