@@ -10,13 +10,16 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
 
-    - name: Restore project
+    - name: Restore packages
       run: |
         nuget restore SampleNunitProject.sln
 
-    - name: Can i run nunit console runner?
+    - name: Run Unit Tests
       run: |
-        find . -type d -maxdepth 5
-        ls -la $GITHUB_WORKSPACE/packages
-        ls -la $GITHUB_WORKSPACE/packages/NUnit.ConsoleRunner.3.12.0
-        mono $GITHUB_WORKSPACE/packages/NUnit.ConsoleRunner.3.12.0/tools/nunit3-console.exe 
+        mono $GITHUB_WORKSPACE/packages/NUnit.ConsoleRunner.3.12.0/tools/nunit3-console.exe SampleNunitProject.sln
+
+    - name: Upload test results as an artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: testResults
+        path: TestResult.xml
