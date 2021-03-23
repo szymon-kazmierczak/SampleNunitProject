@@ -10,17 +10,17 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
 
-    - name: Restore packages
-      run: |
-        nuget restore SampleNunitProject.sln
+    # - name: Restore packages
+    #   run: |
+    #     nuget restore SampleNunitProject.sln
 
-    - name: build the dll
-      run: |
-        dotnet build
+    # - name: build the dll
+    #   run: |
+    #     dotnet build
 
     - name: Run Unit Tests
       run: |
-        mono $GITHUB_WORKSPACE/packages/NUnit.ConsoleRunner.3.12.0/tools/nunit3-console.exe SampleNunitProject.sln
+        mono $GITHUB_WORKSPACE/packages/NUnit.ConsoleRunner.3.12.0/tools/nunit3-console.exe SampleNunitProject.dll
 
     - name: Upload test results as an artifact
       uses: actions/upload-artifact@v2
